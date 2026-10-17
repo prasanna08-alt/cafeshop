@@ -222,5 +222,4 @@ export const footer = {
     { title: "Beans", links: ["Single origins", "Ember Club", "Brew guides", "Gift a bag"] },
     { title: "Follow", links: ["Instagram", "Spotify playlist", "Newsletter"] },
   ],
-  note: "Concept website by Triozen Tech. Ember Roast is an invented brand; products and prices are samples.",
 };

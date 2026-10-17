@@ -115,7 +115,7 @@ export default function EmberFooter() {
 
       <div className="container-x flex flex-wrap items-center justify-between gap-4 border-t border-line py-6 text-[13px] text-muted">
         <span className="max-md:text-[14px]">© 2026 Ember Roast</span>
-        <span className="max-md:text-[14px]">{footer.note}</span>
+        {footer.note && <span className="max-md:text-[14px]">{footer.note}</span>}
       </div>
     </footer>
   );
