@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ember Roast — Walk in. Slow down.</title>
+    <meta
+      name="description"
+      content="A specialty coffee café and roastery in Hyderabad: single-origin Indian coffees roasted every morning, an espresso bar, hand-brewed pour-overs, fresh bakes and beans to take home."
+    />
+    <!-- Moved here from site/Page: never restore the old scroll position on reload, cover the page as it
+         unloads so a reload never flashes the old page, and ?record=1 hides the mouse arrow from frame one. -->
+    <script>
+      history.scrollRestoration = "manual";
+      addEventListener("pagehide", function () {
+        var c = document.createElement("div");
+        c.style.cssText = "position:fixed;inset:0;z-index:2147483647;background:#1b120c";
+        document.body.appendChild(c);
+      });
+      addEventListener("pageshow", function (e) {
+        if (e.persisted) location.reload();
+      });
+      if (/[?&]record/.test(location.search)) {
+        var s = document.createElement("style");
+        s.textContent =
+          "*,*::before,*::after{cursor:none!important}html{scrollbar-width:none}html::-webkit-scrollbar{display:none}";
+        document.head.appendChild(s);
+      }
+    </script>
+  </head>
+  <body class="grain">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
