@@ -1,5 +1,7 @@
 // All text and data for Ember Roast (a concept site: brand, products and prices are samples).
 
+const asset = (p) => (p ? `${import.meta.env.BASE_URL.replace(/\/$/, "")}/${p.replace(/^\//, "")}` : p);
+
 export const nav = {
   links: [
     { label: "The café", href: "#top" },
@@ -16,8 +18,8 @@ export const nav = {
 };
 
 export const hero = {
-  frames: "/frames/ember-hero",
-  framesPhone: "/frames/ember-hero-m", // centre-cut portrait frames (560 × 1080) for phones
+  frames: asset("/frames/ember-hero"),
+  framesPhone: asset("/frames/ember-hero-m"), // centre-cut portrait frames (560 × 1080) for phones
   eyebrow: "Specialty coffee · Roastery · Hyderabad",
   title: ["Walk in.", "*Slow down.*"],
   text: "Single-origin Indian coffee, roasted every morning in Jubilee Hills and brewed by hand.",
@@ -51,10 +53,10 @@ export const origins = {
   text: "Every bag starts on a hillside in the south, picked ripe and shipped to our roaster in Hyderabad.",
   roastery: { name: "Ember Roastery, Hyderabad", lon: 78.47, lat: 17.39 },
   items: [
-    { name: "Chikmagalur", estate: "Kalasa Ridge Estate", altitude: "1,450 m", process: "Washed", notes: ["Cocoa", "Orange peel", "Jaggery"], image: "/images/ember/origin-chikmagalur.webp", lon: 75.77, lat: 13.32 },
-    { name: "Coorg", estate: "Misty Fold Estate", altitude: "1,150 m", process: "Honey", notes: ["Plum", "Brown sugar", "Clove"], image: "/images/ember/origin-coorg.webp", lon: 75.74, lat: 12.42 },
-    { name: "Nilgiris", estate: "Blue Hill Estate", altitude: "1,700 m", process: "Anaerobic", notes: ["Red wine", "Cherry", "Cacao nib"], image: "/images/ember/origin-nilgiris.webp", lon: 76.7, lat: 11.41 },
-    { name: "Araku Valley", estate: "Valley Co-op Farms", altitude: "1,100 m", process: "Washed", notes: ["Jasmine", "Stone fruit", "Honey"], image: "/images/ember/origin-araku.webp", lon: 82.87, lat: 18.33 },
+    { name: "Chikmagalur", estate: "Kalasa Ridge Estate", altitude: "1,450 m", process: "Washed", notes: ["Cocoa", "Orange peel", "Jaggery"], image: asset("/images/ember/origin-chikmagalur.webp"), lon: 75.77, lat: 13.32 },
+    { name: "Coorg", estate: "Misty Fold Estate", altitude: "1,150 m", process: "Honey", notes: ["Plum", "Brown sugar", "Clove"], image: asset("/images/ember/origin-coorg.webp"), lon: 75.74, lat: 12.42 },
+    { name: "Nilgiris", estate: "Blue Hill Estate", altitude: "1,700 m", process: "Anaerobic", notes: ["Red wine", "Cherry", "Cacao nib"], image: asset("/images/ember/origin-nilgiris.webp"), lon: 76.7, lat: 11.41 },
+    { name: "Araku Valley", estate: "Valley Co-op Farms", altitude: "1,100 m", process: "Washed", notes: ["Jasmine", "Stone fruit", "Honey"], image: asset("/images/ember/origin-araku.webp"), lon: 82.87, lat: 18.33 },
   ] ,
 };
 
@@ -62,16 +64,16 @@ export const roast = {
   eyebrow: "The roast",
   title: ["How dark", "*do you like it?*"],
   stops: [
-    { name: "Green", sub: "Before the fire", time: "0 min", temp: "24 °C", notes: "Grassy, raw and hard as a pebble. This is where every bean starts.", best: "Not for brewing yet", image: "/images/ember/roast-green.webp" },
-    { name: "Light", sub: "First crack", time: "9 min", temp: "205 °C", notes: "Bright and floral: jasmine, citrus, tea-like body.", best: "Best for pour-over", image: "/images/ember/roast-light.webp" },
-    { name: "Medium", sub: "Just after first crack", time: "11 min", temp: "218 °C", notes: "Round and sweet: caramel, cocoa, a little fruit.", best: "Best for espresso", image: "/images/ember/roast-medium.webp" },
-    { name: "Ember", sub: "Our house dark", time: "13 min", temp: "228 °C", notes: "Deep and smoky: dark chocolate, molasses, toasted spice.", best: "Best with milk", image: "/images/ember/roast-dark.webp" },
+    { name: "Green", sub: "Before the fire", time: "0 min", temp: "24 °C", notes: "Grassy, raw and hard as a pebble. This is where every bean starts.", best: "Not for brewing yet", image: asset("/images/ember/roast-green.webp") },
+    { name: "Light", sub: "First crack", time: "9 min", temp: "205 °C", notes: "Bright and floral: jasmine, citrus, tea-like body.", best: "Best for pour-over", image: asset("/images/ember/roast-light.webp") },
+    { name: "Medium", sub: "Just after first crack", time: "11 min", temp: "218 °C", notes: "Round and sweet: caramel, cocoa, a little fruit.", best: "Best for espresso", image: asset("/images/ember/roast-medium.webp") },
+    { name: "Ember", sub: "Our house dark", time: "13 min", temp: "228 °C", notes: "Deep and smoky: dark chocolate, molasses, toasted spice.", best: "Best with milk", image: asset("/images/ember/roast-dark.webp") },
   ],
 };
 
 export const pour = {
-  frames: "/frames/ember-pour",
-  framesPhone: "/frames/ember-pour-m", // centre-cut frames (750 × 900) for phones
+  frames: asset("/frames/ember-pour"),
+  framesPhone: asset("/frames/ember-pour-m"), // centre-cut frames (750 × 900) for phones
   eyebrow: "Signature · The pour",
   title: ["Brewed *by hand.*", "Three slow minutes."],
   recipe: ["18 g coffee", "250 g water", "93 °C", "medium-fine"],
@@ -93,7 +95,7 @@ export const menu = {
   pages: [
     {
       tab: "Espresso bar",
-      image: "/images/ember/menu-espresso.webp",
+      image: asset("/images/ember/menu-espresso.webp"),
       items: [
         { name: "Espresso", note: "Ember house blend, 36 g in 28 seconds", price: 160 },
         { name: "Cortado", note: "Equal parts espresso and warm milk", price: 200 },
@@ -105,7 +107,7 @@ export const menu = {
     },
     {
       tab: "Pour-over",
-      image: "/images/ember/menu-pourover.webp",
+      image: asset("/images/ember/menu-pourover.webp"),
       items: [
         { name: "Araku Valley", note: "Washed · jasmine, stone fruit", price: 290 },
         { name: "Chikmagalur", note: "Washed · cocoa, orange peel", price: 280 },
@@ -116,7 +118,7 @@ export const menu = {
     },
     {
       tab: "Cold",
-      image: "/images/ember/menu-cold.webp",
+      image: asset("/images/ember/menu-cold.webp"),
       items: [
         { name: "18-hour cold brew", note: "Chikmagalur, steeped overnight", price: 240 },
         { name: "Filter kaapi tonic", note: "Chicory brew, tonic, orange", price: 260 },
@@ -127,7 +129,7 @@ export const menu = {
     },
     {
       tab: "Bakes",
-      image: "/images/ember/bake-croissant.webp",
+      image: asset("/images/ember/bake-croissant.webp"),
       items: [
         { name: "Cardamom bun", note: "Glazed, still warm at 8 am", price: 160 },
         { name: "Brown-butter croissant", note: "72 layers, baked in-house", price: 210 },
@@ -144,10 +146,10 @@ export const bakes = {
   title: ["Out of the oven", "*at 8.*"],
   text: "Baked in our own oven every morning, in small batches, until they run out.",
   items: [
-    { name: "Cardamom bun", note: "Soft, glazed, green cardamom", price: 160, out: "Out at 8 am", image: "/images/ember/bake-bun.webp" },
-    { name: "Brown-butter croissant", note: "Flaky, nutty, 72 layers", price: 210, out: "Out at 8 am", image: "/images/ember/bake-croissant.webp" },
-    { name: "Jaggery banana bread", note: "Warm slice, salted butter", price: 180, out: "Out at 12 pm", image: "/images/ember/bake-bananabread.webp" },
-    { name: "Filter-coffee tiramisu", note: "Made with our decoction", price: 290, out: "Out at 12 pm", image: "/images/ember/bake-tiramisu.webp" },
+    { name: "Cardamom bun", note: "Soft, glazed, green cardamom", price: 160, out: "Out at 8 am", image: asset("/images/ember/bake-bun.webp") },
+    { name: "Brown-butter croissant", note: "Flaky, nutty, 72 layers", price: 210, out: "Out at 8 am", image: asset("/images/ember/bake-croissant.webp") },
+    { name: "Jaggery banana bread", note: "Warm slice, salted butter", price: 180, out: "Out at 12 pm", image: asset("/images/ember/bake-bananabread.webp") },
+    { name: "Filter-coffee tiramisu", note: "Made with our decoction", price: 290, out: "Out at 12 pm", image: asset("/images/ember/bake-tiramisu.webp") },
   ],
 };
 
@@ -157,7 +159,7 @@ export const beans = {
   eyebrow: "Take home",
   title: ["Take the café", "*home.*"],
   text: "Roasted this week, packed the same day. 250 g bags, ground the way you brew.",
-  bagImage: "/images/ember/bag-kraft.webp",
+  bagImage: asset("/images/ember/bag-kraft.webp"),
   grinds: ["Whole bean", "Espresso", "Pour-over", "French press"],
   items: [
     { origin: "Araku Valley", roast: "Light", roastLevel: 1, notes: "Jasmine · stone fruit · honey", price: 790, label: "#f4e9d8", ink: "#2a1a10" },
@@ -172,9 +174,9 @@ export const stay = {
   title: ["Stay", "*a while.*"],
   text: "For laptops, first dates and long chats. Nobody will rush you.",
   photos: [
-    { image: "/images/ember/stay-window.webp", label: "The window seat", note: "Quiet corner till noon" },
-    { image: "/images/ember/stay-table.webp", label: "The long table", note: "Fast Wi-Fi · plugs at every seat" },
-    { image: "/images/ember/stay-roaster.webp", label: "The roaster", note: "Roasting days: Tue & Fri" },
+    { image: asset("/images/ember/stay-window.webp"), label: "The window seat", note: "Quiet corner till noon" },
+    { image: asset("/images/ember/stay-table.webp"), label: "The long table", note: "Fast Wi-Fi · plugs at every seat" },
+    { image: asset("/images/ember/stay-roaster.webp"), label: "The roaster", note: "Roasting days: Tue & Fri" },
   ],
 };
 
@@ -183,7 +185,7 @@ export const club = {
   title: "Fresh beans, every two weeks.",
   perks: ["From ₹1,190 / month", "Your first cup on us", "Students 10% off with ID"],
   button: "Join the club",
-  image: "/images/ember/menu-flatwhite.webp",
+  image: asset("/images/ember/menu-flatwhite.webp"),
 };
 
 export const reviews = {

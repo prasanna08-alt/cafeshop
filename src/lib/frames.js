@@ -10,14 +10,24 @@
 
 
 
+function resolvePath(p) {
+  const base = import.meta.env.BASE_URL || "/";
+  if (!p || p.startsWith("http://") || p.startsWith("https://") || p.startsWith(base)) {
+    return p ? p.replace(/\/$/, "") : "";
+  }
+  return `${base.replace(/\/$/, "")}/${p.replace(/^\//, "").replace(/\/$/, "")}`;
+}
+
 export async function getManifest(folder) {
-  const res = await fetch(`${folder.replace(/\/$/, "")}/manifest.json`, { cache: "force-cache" });
+  const resolved = resolvePath(folder);
+  const res = await fetch(`${resolved}/manifest.json`, { cache: "force-cache" });
   if (!res.ok) throw new Error(`No manifest.json in ${folder}. Run: npm run frames -- <video> ${folder.replace(/^\//, "")}`);
   return res.json();
 }
 
 export function frameUrl(folder, m, i) {
-  return `${folder.replace(/\/$/, "")}/${m.prefix}${String(i + 1).padStart(m.pad, "0")}.${m.ext}`;
+  const resolved = resolvePath(folder);
+  return `${resolved}/${m.prefix}${String(i + 1).padStart(m.pad, "0")}.${m.ext}`;
 }
 
 /**

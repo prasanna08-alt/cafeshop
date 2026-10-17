@@ -141,8 +141,8 @@ export default function SteamHero() {
         {/* the fogged glass: blurred café, misty film, droplets, drip trails; the mask wipes it away */}
         <div className="hero-fog pointer-events-none absolute inset-0">
           <picture>
-            <source media="(max-width: 767px)" srcSet="/images/ember/hero-fog-phone.webp" />
-            <img src="/images/ember/hero-fog.webp" alt="" className="absolute inset-0 h-full w-full object-cover" />
+            <source media="(max-width: 767px)" srcSet={`${import.meta.env.BASE_URL}images/ember/hero-fog-phone.webp`} />
+            <img src={`${import.meta.env.BASE_URL}images/ember/hero-fog.webp`} alt="" className="absolute inset-0 h-full w-full object-cover" />
           </picture>
           {/* condensation film: misty white, denser towards the bottom of the glass */}
           <div className="absolute inset-0 bg-[rgba(238,230,220,0.14)]" />
